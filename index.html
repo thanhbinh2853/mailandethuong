@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang web dành cho eiu</title>
+    <style>
+        @keyframes fly {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: fly 2s linear forwards;
+            pointer-events: none;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>hello MaiLan ❤️❤️❤️ !</h1>
+    <p>Trang web của mailan đã xong.</p>
+    <button onclick="showLove()">Bấm vào đây</button>
+
+    <audio autoplay loop>
+        <source src="mailan.mp3" type="audio/mpeg">
+        Trình duyệt của Bệ hạ không hỗ trợ phát nhạc.
+    </audio>
+
+    <script>
+        function getRandomColor() {
+            const colors = ["#ff1493", "#ff69b4", "#ff4500", "#ff6347", "#db7093", "#ff00ff", "#ffb6c1"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function showLove() {
+            alert("MaiLan xinh đẹp sẽ thi tốt");
+
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement("div");
+                heart.innerText = "❤";
+                heart.className = "heart";
+                heart.style.left = Math.random() * window.innerWidth + "px";
+                heart.style.top = Math.random() * window.innerHeight + "px";
+                heart.style.color = getRandomColor();
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 2000);
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
